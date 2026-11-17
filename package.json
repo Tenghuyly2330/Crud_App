@@ -1,0 +1,10 @@
+{
+  "name": "crud-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack CRUD app with Express, React 19, Tailwind CSS, and Neon PostgreSQL",
+  "scripts": {
+    "server": "npm --prefix backend start",
+    "client": "npm --prefix frontend run dev"
+  }
+}
