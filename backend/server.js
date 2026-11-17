@@ -26,8 +26,12 @@ async function initDb() {
   console.log('Database initialized (table: items)');
 }
 
+app.get("/health", async (req, res) => {
+  res.status(200).json({ message: "OK health is good" });
+})
+
 app.get('/api/items', async (req, res) => {
-  try {
+  try { 
     const result = await pool.query('SELECT * FROM items ORDER BY id DESC');
     res.json(result.rows);
   } catch (err) {
