@@ -24,7 +24,7 @@ docker compose up --build
 ```
 
 - **Frontend**: Accessible at [http://localhost](http://localhost) or [http://localhost:5173](http://localhost:5173)
-- **Backend API**: Accessible at [http://localhost:5000](http://localhost:5000)
+- **Backend API**: Accessible at [http://localhost:6000](http://localhost:6000)
 
 To stop the containers:
 ```bash
