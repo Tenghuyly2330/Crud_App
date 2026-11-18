@@ -7,9 +7,17 @@ A minimalist monochrome CRUD application with:
 
 ---
 
-## Running with Docker (Recommended)
+## 🐳 Docker Hub Images
 
-Run both the frontend and backend with a single command:
+Images are automatically built and published via GitHub Actions to Docker Hub:
+- `docker pull <username>/crud-backend:latest`
+- `docker pull <username>/crud-frontend:latest`
+
+---
+
+## 🚀 Running Locally with Docker Compose
+
+Run both frontend and backend with a single command:
 
 ```bash
 docker compose up --build
@@ -25,7 +33,7 @@ docker compose down
 
 ---
 
-## Running Locally (Without Docker)
+## 💻 Running Without Docker
 
 ### 1. Start Backend (Port 5000)
 ```bash
@@ -38,8 +46,6 @@ npm start
 cd frontend
 npm run dev
 ```
-
-Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ---
 

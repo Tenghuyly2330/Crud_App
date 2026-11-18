@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 import { useState, useEffect, useRef } from 'react';
 
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 function App() {
   const [items, setItems] = useState([]);
   const [title, setTitle] = useState('');
@@ -27,7 +29,7 @@ function App() {
   const fetchItems = async () => {
     try {
       setLoading(true);
-      const res = await fetch('/api/items');
+      const res = await fetch(`${API_URL}/api/items`);
       if (!res.ok) throw new Error('Failed to fetch');
       const data = await res.json();
       setItems(Array.isArray(data) ? data : []);
@@ -54,7 +56,7 @@ function App() {
       setIsSubmitting(true);
       if (editingId) {
         // Update
-        const res = await fetch(`/api/items/${editingId}`, {
+        const res = await fetch(`${API_URL}/api/items/${editingId}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ title: title.trim(), description: description.trim() }),
@@ -66,7 +68,7 @@ function App() {
         showToast('Item updated');
       } else {
         // Create
-        const res = await fetch('/api/items', {
+        const res = await fetch(`${API_URL}/api/items`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ title: title.trim(), description: description.trim() }),
@@ -106,7 +108,7 @@ function App() {
   // 4. Delete item
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`/api/items/${id}`, { method: 'DELETE' });
+      const res = await fetch(`${API_URL}/api/items/${id}`, { method: 'DELETE' });
       if (!res.ok) throw new Error('Delete failed');
       setItems((prev) => prev.filter((item) => item.id !== id));
       if (editingId === id) handleCancelEdit();
