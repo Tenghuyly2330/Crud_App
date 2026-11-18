@@ -146,7 +146,7 @@ function App() {
             <span
               className={`w-1.5 h-1.5 rounded-full ${isConnected ? 'bg-black' : 'bg-zinc-400'}`}
             />
-            <span>{isConnected ? 'Crud App' : 'Offline'}</span>
+            <span>{isConnected ? 'Crud App Testing' : 'Offline'}</span>
           </div>
         </header>
 
